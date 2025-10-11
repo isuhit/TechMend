@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head', { title: 'Request Repair' }) %>
+  <body class="bg-gray-50">
+    <%- include('../partials/header') %>
+
+    <main class="flex justify-center items-center min-h-screen px-4">
+      <section class="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-8">
+        <div class="text-center mb-8">
+          <h1 class="text-3xl font-bold">Request a Repair</h1>
+          <p class="text-gray-600 mt-2">
+            Please fill out the form below. We’ll contact you shortly.
+          </p>
+        </div>
+
+        <form action="request-repair" method="POST" class="space-y-6">
+          <div>
+            <label class="block text-sm font-medium">Full Name</label>
+            <input
+              type="text"
+              name="fullName"
+              class="block w-full rounded-lg border p-3"
+              placeholder="John Doe"
+            />
+          </div>
+
+          <!-- Other form fields here... -->
+
+        <div>
+          <label for="email" class="block text-sm font-medium">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com"
+            class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark shadow-sm focus:ring-primary focus:border-primary sm:text-sm h-12 px-4"/>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="phone" class="block text-sm font-medium">Phone</label>
+          <input type="text" id="phone" name="phone" placeholder="0800-123-4567"
+            class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark shadow-sm focus:ring-primary focus:border-primary sm:text-sm h-12 px-4"/>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="pc-model" class="block text-sm font-medium">PC Model</label>
+          <input type="text" id="pc-model" name="pcModel" placeholder="e.g., Dell XPS 13"
+            class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark shadow-sm focus:ring-primary focus:border-primary sm:text-sm h-12 px-4"/>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="issue" class="block text-sm font-medium">Describe the Issue</label>
+          <textarea id="issue" name="issue" rows="4" placeholder="My PC won't boot up. It powers on, the fans spin, but the screen remains black, and I don't see the usual manufacturer logo or BIOS screen."
+            class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark shadow-sm focus:ring-primary focus:border-primary sm:text-sm p-4"></textarea>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="repair-time" class="block text-sm font-medium">Preferred Repair Time</label>
+          <input type="datetime-local" id="repair-time" name="repairTime"
+            class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark shadow-sm focus:ring-primary focus:border-primary sm:text-sm h-12 px-4"/>
+        </div>
+            <div class="sm:col-span-2">
+          <label for="pc-type" class="block text-sm font-medium">Budget</label>
+          <select id="pc-type" name="budget"
+            class="form-select block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark shadow-sm focus:ring-primary focus:border-primary sm:text-sm h-12 px-4">
+            <option>Budget</option>
+            <option>₦5k</option>
+            <option>₦10k to ₦20k</option>
+            <option>₦21k to ₦30k</option>
+            <option>₦31k to ₦40k</option>
+            <option>₦41k to ₦50k</option>
+            <option>₦51k to ₦100k</option>
+            <option>over ₦100k</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="pt-4">
+       
+
+          <button
+          type="submit"
+          class="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90"
+          >
+          Submit Request
+        </button>
+    
+        </form>
+      </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

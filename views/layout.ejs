@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+
+  <body class="bg-background-light dark:bg-background-dark font-display text-content-light dark:text-content-dark">
+    <div class="flex flex-col min-h-screen">
+      <%- include('partials/header') %>
+      <main class="flex-grow">
+        <%- body %>
+      </main>
+      <%- include('partials/footer') %>
+    </div>
+  </body>
+</html>

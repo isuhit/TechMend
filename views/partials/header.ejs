@@ -1,17 +1,33 @@
-<header class="flex items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-10 py-4 text-white z-20 relative">
+<header
+  class="flex items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-10 py-4 text-white z-20 relative"
+>
   <div class="flex items-center gap-3">
-    <svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      class="h-8 w-8 text-white"
+      fill="none"
+      viewBox="0 0 48 48"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path d="M39.5563 34.1455V13.8546C39.5563 15.708 ..."></path>
     </svg>
-    <h2 class="text-xl font-bold">Techmend</h2>
+    <h2 class="text-xl font-bold"><a href="/">Techmend</a></h2>
   </div>
   <div class="flex items-center gap-4 sm:gap-6">
     <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
-      <a class="hover:text-primary transition-colors" href="#how-it-works">How it works</a>
-      <a class="hover:text-primary transition-colors" href="#reviews">Reviews</a>
+      <a class="hover:text-primary transition-colors" href="#how-it-works"
+        >How it works</a
+      >
+      <a class="hover:text-primary transition-colors" href="#reviews"
+        >Reviews</a
+      >
+       <a class="hover:text-primary transition-colors" href="/admin/dashboard"
+        >Admin</a
+      >
     </nav>
-    <button class="flex items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-accent/90">
-      Request Repair
+    <button
+      class="flex items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-accent/90"
+    >
+      <a href="/request-repair"> Request Repair</a>
     </button>
   </div>
 </header>

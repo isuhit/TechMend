@@ -4,3 +4,8 @@
   --background-light: #FFFFFF;
   --background-dark: #1a1a1a;
 }
+
+header, footer {
+  background-color: var(--primary-blue);
+  color: var(--background-light);
+}
