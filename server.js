@@ -4,7 +4,7 @@ const port = 5050;
 const mongoose = require("mongoose");
 const Request = require("./model/request");
 const session = require("express-session");
-require('dotenv').config()
+require("dotenv").config();
 
 const { sendConfirmationMail } = require("./services/mailer");
 const { getConfirmationHtml } = require("./services/confirmationHtml");
@@ -20,12 +20,14 @@ const adminRoutes = require("./routes/admin");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
-}))
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  })
+);
 
 app.get("/", (req, res) => {
   res.render("pages/index", { title: "Home" });
@@ -56,14 +58,13 @@ app.post("/request-repair", (req, res) => {
   res.redirect("/");
 });
 
-
-
 app.use("/admin", adminRoutes);
 
 mongoose
-  .connect(
-    "***REMOVED***"
-  )
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then((result) => {
     app.listen(port, () => {
       console.log(`Server is running on Port: ${port}`);
