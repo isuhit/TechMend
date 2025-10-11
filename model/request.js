@@ -11,9 +11,19 @@ const requestSchema = new Schema({
   budget: String,
   status: {
     type: String,
-    enum: ["Pending", "In progress", "Completed", "rejected"],
+    enum: [
+      "Pending",
+      "Under Review",
+      "Quoted",
+      "Approved for Repair",
+      "In Progress",
+      "Completed",
+      "Rejected",
+    ],
     default: "Pending",
   },
+  quote: Number,
+  isAccepted: { type: Boolean, default: false },
 });
 
 module.exports = mongoose.model("Request", requestSchema);

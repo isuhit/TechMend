@@ -28,7 +28,6 @@ exports.postUpdateStatus = (req, res) => {
   const newStatus = req.body.status;
   Request.findByIdAndUpdate(id, { status: newStatus }, { new: true }).then(
     (response) => {
-      console.log(id, newStatus);
       const html = getStatusEmail({
         customerName: response.name,
         status: newStatus,
@@ -54,4 +53,14 @@ exports.getAdmindashboard = (req, res) => {
   });
 };
 
-// exports.postUpdateStatus = (req, res) => {}
+exports.postAdminLogout = (req, res) => {
+  // req.session.admin = false
+  req.session.destroy((err) => {
+    if (err) {
+      console.error(err)
+      res.redirect("/admin/dashboard");
+    }
+    res.clearCookie("connect.sid", {path: "/"})
+    res.redirect("/")
+  });
+};

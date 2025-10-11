@@ -24,7 +24,7 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: { secure: false },
   })
 );
@@ -39,7 +39,7 @@ app.get("/request-repair", (req, res) => {
 
 app.post("/request-repair", (req, res) => {
   const { fullName, email, phone, pcModel, issue, budget, repairTime } =
-    req.body;
+  req.body;
   const request = new Request({
     name: fullName,
     email: email,

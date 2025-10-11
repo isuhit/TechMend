@@ -15,6 +15,7 @@ function isAdmin(req, res, next) {
 router.get("/login", adminController.getAdminLoginPage);
 router.post("/login", adminController.postAdminLogin);
 router.get("/dashboard", isAdmin, adminController.getAdmindashboard);
-router.post("/update/:id", isAdmin, adminController.postUpdateStatus)
+router.post("/update/:id", isAdmin, adminController.postUpdateStatus);
+router.post("/logout", isAdmin, adminController.postAdminLogout);
 
 module.exports = router;
