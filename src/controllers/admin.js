@@ -1,6 +1,5 @@
 const Request = require("../model/request");
 
-const session = require("express-session");
 
 const { sendConfirmationMail } = require("../services/mailer");
 const { getStatusEmail } = require("../services/confirmationHtml");
@@ -60,7 +59,7 @@ exports.postAdminLogout = (req, res) => {
       console.error(err)
       res.redirect("/admin/dashboard");
     }
-    res.clearCookie("connect.sid", {path: "/"})
+    res.clearCookie("connect.sid")
     res.redirect("/")
   });
 };

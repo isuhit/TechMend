@@ -2,16 +2,16 @@ const { sendConfirmationMail } = require("../services/mailer");
 const { getConfirmationHtml } = require("../services/confirmationHtml");
 
 exports.getHomePage = (req, res) => {
-res.render("pages/index", { title: "Home" });
-}
+  res.render("pages/index", { title: "Home" });
+};
 
 exports.getRequestRepairPage = (req, res) => {
   res.render("pages/request-repair", { title: "Request Repair" });
-}
+};
 
-exports.postRequestRepair =  (req, res) => {
+exports.postRequestRepair = (req, res) => {
   const { fullName, email, phone, pcModel, issue, budget, repairTime } =
-  req.body;
+    req.body;
   const request = new Request({
     name: fullName,
     email: email,
@@ -28,4 +28,4 @@ exports.postRequestRepair =  (req, res) => {
     sendConfirmationMail(email, "Pc Repair Request Recieved", html);
   });
   res.redirect("/");
-}
+};
