@@ -1,6 +1,5 @@
 const Request = require("../model/request");
 
-
 const { sendConfirmationMail } = require("../services/mailer");
 const { getStatusEmail } = require("../services/confirmationHtml");
 
@@ -15,7 +14,12 @@ exports.postAdminLogin = (req, res) => {
 
   if (username === adminUsername && password === adminPassword) {
     req.session.admin = true;
-    res.redirect("/admin/dashboard");
+    console.log(req.session);
+    req.session.save((err) => {
+      if (err) console.error("Session save error:", err);
+      res.redirect("/admin/dashboard");
+    });
+    // res.redirect("/admin/dashboard");
   } else {
     res.status(401).send("Invalid credentials");
   }
@@ -56,10 +60,10 @@ exports.postAdminLogout = (req, res) => {
   // req.session.admin = false
   req.session.destroy((err) => {
     if (err) {
-      console.error(err)
+      console.log(err, "controllers/admin.js/59");
       res.redirect("/admin/dashboard");
     }
-    res.clearCookie("connect.sid")
-    res.redirect("/")
+    res.clearCookie("connect.sid");
+    res.redirect("/");
   });
 };

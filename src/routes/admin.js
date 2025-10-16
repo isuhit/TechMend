@@ -8,6 +8,7 @@ function isAdmin(req, res, next) {
   if (req.session.admin) {
     return next();
   }
+console.log(req.session);
 
   res.redirect("/admin/login");
 }
