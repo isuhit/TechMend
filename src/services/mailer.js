@@ -3,11 +3,14 @@ require("dotenv").config();
 
 const transporter = nodemailer.createTransport({
   host: process.env.BREVO_SMTP_HOST,
-  port: process.env.BREVO_SMTP_PORT,
+  port: Number(process.env.BREVO_SMTP_PORT),
   secure: false, // true for 465, false for other ports
   auth: {
     user: process.env.BREVO_SMTP_USER,
     pass: process.env.BREVO_SMTP_PASSWORD,
+  },
+    tls: {
+    rejectUnauthorized: false, // prevents Railway SSL handshake issues
   },
 });
 
@@ -27,7 +30,7 @@ const sendConfirmationMail = (to, subject, html) => {
         "services/mailer/22"
       );
     })
-    .catch((err) => console.log(err, "services/mailer/22"));
+    .catch((err) => console.log(err, "services/mailer/30"));
 };
 
 module.exports = { sendConfirmationMail };

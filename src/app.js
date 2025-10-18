@@ -10,6 +10,8 @@ const helmet = require("helmet");
 const compression = require("compression");
 const rateLimit = require("express-rate-limit");
 
+app.set('trust proxy', 1);
+
 app.use(
   helmet({
     contentSecurityPolicy: {
