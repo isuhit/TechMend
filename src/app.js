@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+app.set('trust proxy', 1);
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 
@@ -10,7 +11,7 @@ const helmet = require("helmet");
 const compression = require("compression");
 const rateLimit = require("express-rate-limit");
 
-app.set('trust proxy', 1);
+
 
 app.use(
   helmet({
