@@ -1,7 +1,9 @@
 const Request = require("../model/request");
 
 const { sendConfirmationMail } = require("../services/mailer");
-const { getStatusEmail } = require("../services/confirmationHtml");
+const {
+  getStatusEmail,
+} = require("../services/mailer/templates/confirmationHtml");
 
 exports.getAdminLoginPage = (req, res) => {
   res.render("pages/login");

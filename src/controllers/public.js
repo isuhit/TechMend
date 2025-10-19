@@ -1,8 +1,9 @@
 const Request = require("../model/request");
 
-const { sendConfirmationMail } = require("../services/mailer");
-const { getConfirmationHtml } = require("../services/confirmationHtml");
-
+const { sendMail } = require("../services/mailer/transport");
+const {
+  getConfirmationHtml,
+} = require("../services/mailer/templates/confirmationHtml");
 
 const { body, validationResult } = require("express-validator");
 
@@ -22,12 +23,10 @@ exports.postRequestRepair = (req, res) => {
       errors: errors.array(),
       data: req.body, // to refill form fields
     });
-    
   }
 
   const { fullName, email, phone, pcModel, issue, budget, repairTime } =
     req.body;
-    console.log(req.body);
   const request = new Request({
     name: fullName,
     email: email,
@@ -37,12 +36,12 @@ exports.postRequestRepair = (req, res) => {
     repairDate: repairTime,
     budget: budget,
   });
-  
+
   const html = getConfirmationHtml({ name: fullName, repairId: request._id });
 
   request.save().then((result) => {
     console.log("Request saved to DB", "controllers/public.js/26");
-    sendConfirmationMail(email, "Pc Repair Request Recieved", html);
+    sendMail(email, "Pc Repair Request Recieved", html);
   });
   res.redirect("/");
 };
