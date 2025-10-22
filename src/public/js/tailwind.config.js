@@ -3,8 +3,12 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        primary: "var(--primary-blue)",
-        accent: "var(--primary-red)",
+        primary: "#1C2A4A",
+        accent: "#31C48D",
+        secondary: "#4F8CC9",
+        background: "#F9FAFB",
+        neutral: "#E5E7EB",
+       
         "background-light": "var(--background-light)",
         "background-dark": "var(--background-dark)",
       },

@@ -1,11 +1,26 @@
-<footer class="bg-white dark:bg-background-dark border-t border-gray-200 dark:border-gray-800">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-    <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
-      <p class="text-sm text-gray-500 dark:text-gray-400">© <%= new Date().getFullYear() %> Techmend. All rights reserved.</p>
-      <div class="flex items-center gap-6">
-        <a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">Terms</a>
-        <a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">Privacy</a>
-      </div>
+<footer class="bg-primary text-white border-t border-neutral/20">
+  <div class="max-w-7xl mx-auto px-0 sm:px-6 lg:px-10 py-0 flex flex-col md:flex-row items-center justify-between gap-4">
+    
+    <!-- Left Section -->
+    <div class="flex items-center gap-2">
+      <img src="/images/logo.png" alt="TechMend Logo" class="h-20 w-auto" />
+      <p class="text-sm text-neutral font-medium">
+        © <%= new Date().getFullYear() %> <span class="font-semibold text-white">TechMend</span>
+      </p>
+    </div>
+
+    <!-- Center Links -->
+    <div class="flex items-center gap-6 text-sm font-medium">
+      <a href="/about" class="hover:text-accent transition-colors">About</a>
+      <a href="/contact" class="hover:text-accent transition-colors">Contact</a>
+      <a href="/faq" class="hover:text-accent transition-colors">FAQ</a>
+    </div>
+
+    <!-- Right Section (Legal Links) -->
+    <div class="flex items-center gap-6 text-sm">
+      <a href="/terms" class="hover:text-secondary transition-colors">Terms</a>
+      <a href="/privacy" class="hover:text-secondary transition-colors">Privacy</a>
     </div>
   </div>
 </footer>
+

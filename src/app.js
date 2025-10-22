@@ -69,7 +69,7 @@ app.use("/admin", adminRoutes);
 
 //404 handler
 app.use((req, res) => {
-  res.status(404).render("pages/404");
+  res.status(404).render("error/404");
 });
 
 // General error handler
@@ -77,7 +77,7 @@ app.use((err, req, res, next) => {
   console.error("Server error:", err.stack);
 
   console.log(err);
-  res.status(500).render("pages/500");
+  res.status(500).render("error/500");
 });
 
 module.exports = app;

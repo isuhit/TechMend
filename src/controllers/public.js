@@ -8,11 +8,11 @@ const {
 const { body, validationResult } = require("express-validator");
 
 exports.getHomePage = (req, res) => {
-  res.render("pages/index", { title: "Home" });
+  res.render("public/index", { title: "Home" });
 };
 
 exports.getRequestRepairPage = (req, res) => {
-  res.render("pages/request-repair", { title: "Request Repair" });
+  res.render("public/request-repair", { title: "Request Repair" });
 };
 
 exports.postRequestRepair = (req, res) => {

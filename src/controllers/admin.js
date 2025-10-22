@@ -1,12 +1,13 @@
 const Request = require("../model/request");
 
-const { sendConfirmationMail } = require("../services/mailer");
+const { sendMail } = require("../services/mailer/transport");
 const {
+  getConfirmationHtml,
   getStatusEmail,
 } = require("../services/mailer/templates/confirmationHtml");
 
 exports.getAdminLoginPage = (req, res) => {
-  res.render("pages/login");
+  res.render("admin/login");
 };
 
 exports.postAdminLogin = (req, res) => {
@@ -15,13 +16,11 @@ exports.postAdminLogin = (req, res) => {
   const adminPassword = process.env.ADMIN_PASSWORD;
 
   if (username === adminUsername && password === adminPassword) {
-    req.session.admin = true;
-    console.log(req.session);
+    req.session.admin = true; 
     req.session.save((err) => {
       if (err) console.error("Session save error:", err);
       res.redirect("/admin/dashboard");
     });
-    // res.redirect("/admin/dashboard");
   } else {
     res.status(401).send("Invalid credentials");
   }
@@ -38,11 +37,7 @@ exports.postUpdateStatus = (req, res) => {
         status: newStatus,
         ticketId: id,
       });
-      sendConfirmationMail(
-        response.email,
-        "Repair request status update",
-        html
-      );
+      sendMail(response.email, "Repair request status update", html);
       res.redirect("/admin/dashboard");
     }
   );
@@ -50,7 +45,7 @@ exports.postUpdateStatus = (req, res) => {
 
 exports.getAdmindashboard = (req, res) => {
   Request.find().then((requests) => {
-    res.render("pages/admin", {
+    res.render("admin/dashboard2", {
       title: "Admin",
       requests: requests,
       adminAvatarUrl: "/images/review2.jpeg",
