@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* 🌈 Define your theme directly here */
+@theme {
+  --color-primary: #1C2A4A;
+  --color-accent: #31C48D;
+  --color-secondary: #4F8CC9;
+  --color-background-light: #F2F2F7;
+  --color-text-light: #1C1C1E;
+  --color-status-completed: #34C759;
+  --color-status-progress: #FF9500;
+  --color-status-new: #FF3B30;
+
+  --font-sans: 'Inter', sans-serif;
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+}
+
+/* Base styles */
+@layer base {
+  body {
+    @apply font-sans bg-background-light text-text-light;
+  }
+}
+
+/* Components */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white font-medium rounded-lg px-4 py-2;
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  .status-completed {
+    @apply text-status-completed;
+  }
+  .status-progress {
+    @apply text-status-progress;
+  }
+  .status-new {
+    @apply text-status-new;
+  }
+}
