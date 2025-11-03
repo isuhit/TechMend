@@ -19,7 +19,7 @@ exports.postRequestRepair = (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     // ❌ Validation failed
-    return res.status(400).render("pages/request-repair", {
+    return res.status(400).render("public/request-repair", {
       errors: errors.array(),
       data: req.body, // to refill form fields
     });
@@ -42,10 +42,11 @@ exports.postRequestRepair = (req, res) => {
   request.save().then((result) => {
     console.log("Request saved to DB", "controllers/public.js/26");
     sendMail(email, "Pc Repair Request Recieved", html);
+    res.redirect(`/request-confirmation?id=${request._id}`);
   });
-  res.redirect("/request-confirmation", {repairId :request._id });
 };
 
 exports.getRequestConfirmationPage = (req, res) => {
-  res.render("public/confirmation.ejs")
-}
+  const id = req.query.id;
+  res.render("public/confirmation.ejs", { id: id });
+};
