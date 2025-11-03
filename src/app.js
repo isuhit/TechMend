@@ -3,6 +3,7 @@ const app = express();
 app.set('trust proxy', 1);
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const favicon = require("serve-favicon");
 
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -12,6 +13,7 @@ const compression = require("compression");
 const rateLimit = require("express-rate-limit");
 
 
+app.use(favicon(path.join(__dirname, "public", "images", "favicon2.png")));
 
 app.use(
   helmet({
