@@ -1,251 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head', {title: "TechMend"}) %>
-  <body
-    class="bg-background-light dark:bg-background-darkds  font-display text-gray-800 dark:text-gray-200"
-  >
-    <div
-      class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
-    >
-      <div class="layout-container flex h-full grow flex-col">
+  <%- include('../partials/head', { title: "TechMend" }) %>
+  <body class="bg-white font-display text-gray-800">
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+      <div class="layout-container flex flex-col h-full grow relative">
         <main class="flex-1">
-          <!-- HERO SECTION -->
-          <section
-            class="relative overflow-hidden min-h-[500px] sm:min-h-[560px] flex flex-col"
-          >
-            <!-- Background image -->
+          <!-- ✅ HEADER -->
+         
+          <div class="absolute inset-x-0 z-20">
+            <%- include("../partials/header") %>
+          </div>
+
+          <!-- 🔹 HERO SECTION -->
+          <section class="relative overflow-hidden min-h-[550px] flex items-center">
+        
             <img
-              alt="Technician installing a processor in a CPU socket"
-              class="absolute inset-0 h-full w-full object-cover"
-              src="images/headers.jpg"
+              src="/images/bg3.jpg"
+              alt="Technician repairing computer"
+              class="absolute inset-0 w-full h-full object-cover"
             />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"
-            ></div>
 
-            <!-- Header (overlayed) -->
-            <div class="relative z-20">
-              <%- include("../partials/header") %>
-            </div>
+            <!-- Light overlay (adds soft fade so text stands out) -->
+            <div class="absolute inset-0 bg-gradient-to-b from-white/50 to-white/20"></div>
 
-            <!-- Hero text -->
+            <!-- Hero content -->
             <div
-              class="relative z-20 mt-auto flex flex-col items-start justify-end p-6 sm:p-10 lg:p-12"
+              class="relative z-10 container mx-auto px-6 md:px-10 pt-32 pb-20 md:pt-20 md:pb-20 flex flex-col md:flex-row items-center justify-between"
             >
-              <div class="max-w-xl text-white">
+              <div class="text-left max-w-lg">
                 <h1
-                  class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight"
+                  class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 leading-tight text-primary"
                 >
-                  PC repair, simplified.
+                  Fast & Reliable <span class="text-accent">Computer Repair</span> Services
                 </h1>
-                <p class="mt-4 text-lg sm:text-xl">
-                  Connect with skilled technicians for fast, reliable PC
-                  repairs. Get your computer back in top shape without the
-                  hassle.
+                <p class="text-primary text-base sm:text-lg mb-6">
+                  TechMend offers expert laptop and desktop repair services restoring
+                  performance and extending your system’s life.
                 </p>
-              </div>
+
+
+
               <button
                 class="mt-8 flex items-center justify-center rounded-lg bg-primary px-5 py-3 text-base font-bold text-white transition-colors hover:bg-primary/90"
               >
-                <a href="/request-repair">Request Repair</a>
+                <a href="/request-repair">Book a Repair</a>
               </button>
+              </div>
             </div>
           </section>
 
-          <!-- HOW IT WORKS -->
-          <section
-            id="how-it-works"
-            class="bg-gray-100 dark:bg-background-dark py-12 sm:py-16"
-          >
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div class="text-center">
-                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
-                  How it works
-                </h2>
-                <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
-                  Get your PC fixed in 3 easy steps
-                </p>
-              </div>
-              <div
-                class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-              >
-                <div
-                  class="flex flex-col items-center text-center p-6 rounded-lg border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-gray-900/50"
-                >
-                  <span class="material-symbols-outlined text-4xl text-primary"
-                    >build</span
-                  >
+          <!-- 🔧 HOW IT WORKS -->
+          <section id="how-it-works" class="bg-gray-50 py-16">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+              <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-primary">
+                How it works
+              </h2>
+              <p class="mt-4 text-lg text-gray-600">
+                Get your PC fixed in 3 easy steps
+              </p>
+
+              <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="flex flex-col items-center text-center p-6 rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+                  <span class="material-symbols-outlined text-4xl text-primary">build</span>
                   <h3 class="mt-4 text-lg font-bold">Request a repair</h3>
-                  <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                    Tell us about your PC issue and location.
-                  </p>
+                  <p class="mt-2 text-sm text-gray-600">Tell us about your PC issue and location.</p>
                 </div>
-                <div
-                  class="flex flex-col items-center text-center p-6 rounded-lg border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-gray-900/50"
-                >
-                  <span class="material-symbols-outlined text-4xl text-primary"
-                    >calendar_month</span
-                  >
+
+                <div class="flex flex-col items-center text-center p-6 rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+                  <span class="material-symbols-outlined text-4xl text-primary">calendar_month</span>
                   <h3 class="mt-4 text-lg font-bold">Schedule a time</h3>
-                  <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                    Choose a convenient time for a technician to diagnose your
-                    problem.
-                  </p>
+                  <p class="mt-2 text-sm text-gray-600">Choose a convenient time for a technician to diagnose your problem.</p>
                 </div>
-                <div
-                  class="flex flex-col items-center text-center p-6 rounded-lg border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-gray-900/50"
-                >
-                  <span class="material-symbols-outlined text-4xl text-primary"
-                    >check_circle</span
-                  >
+
+                <div class="flex flex-col items-center text-center p-6 rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+                  <span class="material-symbols-outlined text-4xl text-primary">check_circle</span>
                   <h3 class="mt-4 text-lg font-bold">Get your PC fixed</h3>
-                  <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                    A skilled technician will repair your PC quickly and
-                    efficiently.
-                  </p>
+                  <p class="mt-2 text-sm text-gray-600">A skilled technician will repair your PC quickly and efficiently.</p>
                 </div>
               </div>
             </div>
           </section>
 
-          <!-- REVIEWS -->
-          <section id="reviews" class="py-16 sm:py-24">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div class="text-center">
-                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
-                  What our customers say
-                </h2>
-              </div>
-              <div
-                class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
-              >
-                <!-- Review Card 1 -->
-                <div
-                  class="flex flex-col gap-4 rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-6"
-                >
-                  <div class="flex items-center gap-4">
-                    <img
-                      alt="Ethan Carter"
-                      class="h-12 w-12 rounded-full object-cover"
-                      src="images/review1.jpeg"
-                    />
-                    <div>
-                      <p class="font-semibold">Ofonasha Ekpenyong</p>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">
-                        2 months ago
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex items-center">
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                  </div>
-                  <p class="text-gray-700 dark:text-gray-300">
-                    Techmend saved me so much time and stress! My laptop was
-                    fixed within hours, and the technician was incredibly
-                    professional.
-                  </p>
-                </div>
+          <!-- 💬 REVIEWS -->
+          <section id="reviews" class="bg-white py-20">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+              <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-primary">
+                What our customers say
+              </h2>
 
-                <!-- Review Card 2 -->
-                <div
-                  class="flex flex-col gap-4 rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-6"
-                >
-                  <div class="flex items-center gap-4">
-                    <img
-                      alt="Sophia Bennett"
-                      class="h-12 w-12 rounded-full object-cover"
-                      src="images/review2.jpeg"
-                    />
-                    <div>
-                      <p class="font-semibold">Emem William</p>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">
-                        3 months ago
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex items-center">
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                  </div>
-                  <p class="text-gray-700 dark:text-gray-300">
-                    I was impressed by the speed and quality of service. My PC
-                    is running better than ever!
-                  </p>
-                </div>
+              <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <% 
+                  const reviews = [
+                    {
+                      name: "Ofonasha Ekpenyong",
+                      img: "images/ofon.jpg",
+                      text: "Techmend saved me so much time and stress! My laptop was fixed within hours, and the technician was incredibly professional."
+                    },
+                    {
+                      name: "Emem William",
+                      img: "images/emem.jpg",
+                      text: "I was impressed by the speed and quality of service. My PC is running better than ever!"
+                    },
+                    {
+                      name: "Sinen Friday",
+                      img: "images/review3.jpeg",
+                      text: "The technician was knowledgeable and fixed the issue quickly. I'd definitely use Techmend again."
+                    }
+                  ];
+                %>
 
-                <!-- Review Card 3 -->
-                <div
-                  class="flex flex-col gap-4 rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-6"
-                >
-                  <div class="flex items-center gap-4">
-                    <img
-                      alt="Liam Harper"
-                      class="h-12 w-12 rounded-full object-cover"
-                      src="images/review3.jpeg"
-                    />
-                    <div>
-                      <p class="font-semibold">Sinen Friday</p>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">
-                        4 months ago
-                      </p>
+                <% reviews.forEach(r => { %>
+                  <div class="flex flex-col gap-4 rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center gap-4">
+                      <img alt="<%= r.name %>" class="h-12 w-12 rounded-full object-cover" src="<%= r.img %>" />
+                      <div>
+                        <p class="font-semibold"><%= r.name %></p>
+                        <p class="text-sm text-gray-500">Recently</p>
+                      </div>
                     </div>
+                    <div class="flex items-center text-primary">
+                      <% for (let i = 0; i < 5; i++) { %>
+                        <span class="material-symbols-outlined text-xl">star</span>
+                      <% } %>
+                    </div>
+                    <p class="text-gray-700"><%= r.text %></p>
                   </div>
-                  <div class="flex items-center">
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                    <span class="material-symbols-outlined text-primary text-xl"
-                      >star</span
-                    >
-                    <span
-                      class="material-symbols-outlined text-gray-400 dark:text-gray-600 text-xl"
-                      >star_outline</span
-                    >
-                  </div>
-                  <p class="text-gray-700 dark:text-gray-300">
-                    The technician was knowledgeable and fixed the issue
-                    quickly. I'd definitely use Techmend again.
-                  </p>
-                </div>
+                <% }) %>
               </div>
             </div>
           </section>
         </main>
 
-        <!-- FOOTER -->
+        <!-- 🔻 FOOTER -->
         <%- include("../partials/footer") %>
       </div>
     </div>

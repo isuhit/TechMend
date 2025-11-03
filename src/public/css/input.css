@@ -1,47 +1,42 @@
 @import "tailwindcss";
 
-/* 🌈 Define your theme directly here */
+/* 🧩 Your Theme */
 @theme {
+  /* 🎨 Colors */
   --color-primary: #1C2A4A;
   --color-accent: #31C48D;
   --color-secondary: #4F8CC9;
-  --color-background-light: #F2F2F7;
-  --color-text-light: #1C1C1E;
-  --color-status-completed: #34C759;
-  --color-status-progress: #FF9500;
-  --color-status-new: #FF3B30;
+  --color-background: #F9FAFB;
+  --color-neutral: #E5E7EB;
 
-  --font-sans: 'Inter', sans-serif;
+  /* 🌗 Light & Dark Variants */
+  --color-background-light: #F9FAFB;
+  --color-background-dark: #1C2A4A;
+
+  /* 🖋️ Fonts */
+  --font-display: 'Inter', sans-serif;
+
+  /* 🔲 Radius */
   --radius-sm: 0.25rem;
-  --radius: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
   --radius-full: 9999px;
 }
 
-/* Base styles */
+/* 🧱 Base Styles */
 @layer base {
   body {
-    @apply font-sans bg-background-light text-text-light;
+    @apply font-display bg-background-light text-primary;
   }
+
+  /* .dark body {
+    @apply bg-background-dark text-neutral;
+  } */
 }
 
-/* Components */
+/* 🧩 Components */
 @layer components {
   .btn-primary {
-    @apply bg-primary text-white font-medium rounded-lg px-4 py-2;
-  }
-}
-
-/* Utilities */
-@layer utilities {
-  .status-completed {
-    @apply text-status-completed;
-  }
-  .status-progress {
-    @apply text-status-progress;
-  }
-  .status-new {
-    @apply text-status-new;
+    @apply bg-accent text-white font-medium rounded-lg px-4 py-2 hover:bg-accent/90;
   }
 }

@@ -45,7 +45,7 @@ exports.postUpdateStatus = (req, res) => {
 
 exports.getAdmindashboard = (req, res) => {
   Request.find().then((requests) => {
-    res.render("admin/dashboard2", {
+    res.render("admin/dashboard", {
       title: "Admin",
       requests: requests,
       adminAvatarUrl: "/images/review2.jpeg",
@@ -54,7 +54,6 @@ exports.getAdmindashboard = (req, res) => {
 };
 
 exports.postAdminLogout = (req, res) => {
-  // req.session.admin = false
   req.session.destroy((err) => {
     if (err) {
       console.log(err, "controllers/admin.js/59");

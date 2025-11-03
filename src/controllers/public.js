@@ -43,5 +43,9 @@ exports.postRequestRepair = (req, res) => {
     console.log("Request saved to DB", "controllers/public.js/26");
     sendMail(email, "Pc Repair Request Recieved", html);
   });
-  res.redirect("/");
+  res.redirect("/request-confirmation", {repairId :request._id });
 };
+
+exports.getRequestConfirmationPage = (req, res) => {
+  res.render("public/confirmation.ejs")
+}

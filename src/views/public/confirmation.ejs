@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request Submitted - TechMend</title>
+
+    <!-- Local Tailwind Build -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- Google Fonts & Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 1,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#F9FAFB] font-[Inter] text-gray-800">
+    <!-- Header -->
+    <%- include("../partials/header") %>
+
+    <main class="flex flex-col items-center justify-center min-h-[80vh] px-4 py-12">
+      <div
+        class="w-full max-w-md bg-white shadow-sm rounded-xl p-8 text-center border border-gray-100"
+      >
+        <!-- Success Icon -->
+        <div
+          class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#31C48D] text-white"
+        >
+          <span class="material-symbols-outlined text-4xl">check_circle</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-2xl font-bold text-[#1C2A4A] mt-6 mb-3">
+          Request Submitted!
+        </h1>
+
+        <!-- Message -->
+        <p class="text-gray-600 mb-6">
+          We've received your PC repair request. Our team will reach out via
+          email soon with updates on your repair status.
+        </p>
+
+        <!-- Details -->
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-left space-y-3">
+          <div class="flex justify-between text-sm">
+            <p class="text-gray-500">Repair Id</p>
+            <p class="font-semibold text-[#1C2A4A]">TM-12345-XYY</p>
+          </div>
+          <div class="flex justify-between text-sm">
+            <p class="text-gray-500">Estimated Completion</p>
+            <p class="font-semibold text-[#1C2A4A]">3–5 Business Days</p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-8 space-y-4">
+          <a
+            href="/"
+            class="block w-full rounded-lg bg-[#1C2A4A] text-white py-3 font-semibold hover:bg-[#243665] transition"
+          >
+            Back to Homepage
+          </a>
+
+          <a
+            href="/support"
+            class="block text-[#4F8CC9] text-sm hover:underline"
+          >
+            Need Help? Contact Support
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <%- include("../partials/footer") %>
+  </body>
+</html>

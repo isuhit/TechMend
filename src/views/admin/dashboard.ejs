@@ -1,61 +1,129 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Dashboard - TechMend</title>
-  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-</head>
-<body class="bg-gray-100 text-gray-800">
-  <header class="bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-2xl font-semibold">TechMend Admin</h1>
-    <form action="/admin/Logout" method="post">
-<button type="submit">Logout</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Repair Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1C2A4A",
+              "background-light": "#F2F2F7",
+              "background-dark": "#1C1C1E",
+              "text-light": "#1C1C1E",
+              "text-dark": "#FFFFFF",
+              "status-completed": "#34C759",
+              "status-progress": "#FF9500",
+              "status-new": "#FF3B30",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
 
-    </form>
-  </header>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark"
+  >
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden"
+    >
+      <%- include("../partials/admin-header") %>
 
-  <main class="p-6">
-    <h2 class="text-xl font-medium mb-4">Repair Requests</h2>
-    <div class="bg-white shadow rounded-lg overflow-hidden">
-      <table class="min-w-full text-sm">
-        <thead class="bg-gray-200 text-gray-600">
-          <tr>
-            <th class="px-4 py-2 text-left">Name</th>
-            <th class="px-4 py-2 text-left">Email</th>
-            <th class="px-4 py-2 text-left">Issue</th>
-            <th class="px-4 py-2 text-left">Status</th>
-            <th class="px-4 py-2 text-left">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% requests.forEach(request => { %>
-          <tr class="border-t">
-            <td class="px-4 py-2" name="fullName"><%= request.name %></td>
-            <td class="px-4 py-2" name="email"><%= request.email %></td>
-            <td class="px-4 py-2"><%= request.issueDescription %></td>
-            <td class="px-4 py-2">
-              <form action="/admin/update/<%= request._id %>" method="POST" class="flex gap-2">
-                <select name="status" class="border rounded p-1">
-                  <option <%= request.status === "Pending" ? "selected" : "" %>>Pending</option>
-                   <option <%= request.status === "Under Review" ? "selected" : "" %>>Under Review</option>
-                  <option <%= request.status === "In progress" ? "selected" : "" %>>In progress</option>
-                  <option <%= request.status === "Completed" ? "selected" : "" %>>Completed</option>
+      <div class="p-4 space-y-4">
+        <% requests.forEach(request => { %>
+        <!-- Repair Request Card 1 -->
+        <div
+          class="flex flex-col gap-4 bg-white dark:bg-gray-800 p-4 rounded-lg shadow"
+        >
+          <div class="flex items-start gap-4">
+            <div
+              class="flex items-center justify-center rounded-full bg-primary/10 text-primary shrink-0 size-12"
+            >
+              <span class="material-symbols-outlined">phone_iphone</span>
+            </div>
+            <div class="flex flex-1 flex-col justify-center">
+              <p
+                class="text-text-light dark:text-text-dark text-base font-bold leading-normal"
+              >
+                <%= request.name %>
+              </p>
+              <p
+                class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+              >
+                June 12, 2024
+              </p>
+            </div>
+          </div>
+          <p
+            class="text-gray-600 dark:text-gray-300 text-sm font-normal leading-normal"
+          >
+            <%= request.issueDescription %>
+          </p>
+          <div class="flex items-center justify-between gap-4 mt-2">
+            <!-- START of Form and Status Update Logic -->
+            
+            <!-- 1. FORM TAG IS NOW WRAPPING THE CONTROLS -->
+            <form action="/admin/update/<%= request._id %>" method="POST" class="flex items-center w-full justify-between gap-2">
+
+              <div class="relative w-1/2">
+                <!-- 2. ADDED name="status" to send data to server -->
+                <select
+                  name="status"
+                  class="w-full h-10 px-3 text-sm bg-background-light dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-primary text-status-new font-semibold"
+                >
+                  <!-- 3. ADDED value="" to all options for reliable data submission -->
+                  <option value="Pending" class="text-status-new" <%= request.status === "Pending" ? "selected" : "" %> >Pending</option>
+                  <option value="Under Review" <%= request.status === "Under Review" ? "selected" : "" %> >Under Review</option>
+                  <option value="In progress" class="text-status-progress" <%= request.status === "In progress" ? "selected" : "" %>>In progress</option>
+                  <option value="Completed" class="text-status-completed" <%= request.status === "Completed" ? "selected" : "" %>>Completed</option>
                 </select>
-                <button type="submit" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
-                  Update
-                </button>
-              </form>
-            </td>
-          </tr>
-          <% }) %>
-        </tbody>
-      </table>
-    </div>
-  </main>
-  <div style="position: fixed; bottom: 0; width: 100%;  text-align: center; padding: 10px;">
+                <span
+                  class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                >expand_more</span>
+              </div>
 
-    <%- include("../partials/footer") %>
-  </div>
-</body>
+              <!-- 4. The button is now inside the form and has type="submit" -->
+              <button type="submit"
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium leading-normal w-fit"
+              >
+                <span class="truncate">Update</span>
+              </button>
+            </form>
+            <!-- END of Form and Status Update Logic -->
+          </div>
+        </div>
+        <% }) %>
+
+      </div>
+    </div>
+  </body>
+  <%- include("../partials/footer") %>
 </html>

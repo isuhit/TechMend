@@ -46,4 +46,6 @@ router.post(
   publicController.postRequestRepair
 );
 
+router.get("/request-confirmation", publicController.getRequestConfirmationPage)
+
 module.exports = router;
